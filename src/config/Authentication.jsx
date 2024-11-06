@@ -48,6 +48,8 @@ const Authentication = () => {
     } catch (err) {
       console.error(err)
     }
+    setOvertimeModal(false)
+    setClockModal(false)
   }
 
   const clockIn = async () => {

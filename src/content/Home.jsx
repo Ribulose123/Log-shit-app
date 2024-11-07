@@ -25,7 +25,7 @@ const Home = () => {
       className="flex w-2/3 sm:w-1/2 flex-col items-center rounded-3xl border border-solid border-slate-900 bg-white py-10 px-6 shadow-xl dark:border-gray-100 dark:bg-black"
     >
 
-      <img src="/public/img/hr1.avif" alt="hr avater" className="rounded-2xl " />
+      <img src="/img/hr1.avif" alt="hr avater" className="rounded-2xl " />
       <h2 className="text-2xl font-semibold">HR Portal</h2>
       <button  className="rounded-3xl border border-solid border-slate-900 bg-white py-2 px-3 shadow-xl dark:border-gray-100 dark:bg-black dark:text-white  text-slate-900 mt-3" onClick={handleHr}>Hr Page</button>
     </div>
@@ -33,7 +33,7 @@ const Home = () => {
     <div
       className="flex w-2/3 sm:w-1/2 flex-col items-center rounded-3xl border border-solid border-slate-900 bg-white py-10 px-6 shadow-xl dark:border-gray-100 dark:bg-black"
     >
-      <img src="/public/img/em3.avif" alt=""  className="rounded-2xl "/>
+      <img src="/img/em3.avif" alt=""  className="rounded-2xl "/>
       <h2 className="text-2xl font-semibold">Employee Portal</h2>
       <button   className="rounded-3xl border border-solid border-slate-900 bg-white py-3 px-4 shadow-xl dark:border-gray-100 dark:bg-black dark:text-white  text-slate-900 mt-3" onClick={handleEmployees}>Employees page</button>
       

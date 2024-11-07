@@ -1,23 +1,23 @@
-import React, { useState } from 'react';
-import { auth2 } from '../config/Hrfirebabe';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react'
+import { auth1 } from '../config/Hrfirebabe'
+import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { useNavigate } from 'react-router-dom'
 
-const Firebase = ({ closeModal }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const navigate = useNavigate();
+const HrLogin = ({closeModal}) => {
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const navigate = useNavigate()
 
-  const signIn = async () => {
-    try {
-      await createUserWithEmailAndPassword(auth2, email, password);
-      closeModal();  // Close the modal after successful login
-      navigate('/employees'); // Navigate after closing modal
-    } catch (err) {
-      console.error(err);
+    const SignIn = async()=>{
+       try{
+        await createUserWithEmailAndPassword(auth1, email, password)
+        closeModal()
+        navigate('/hrcontent')
+       } catch(error){
+        console.error(error);
+        
+       }
     }
-  };
-
   return (
     <div
       className="bg-white bg-opacity-30 backdrop-blur-lg p-6 rounded-lg shadow-lg w-full max-w-md mx-auto relative border border-gray-200"
@@ -58,12 +58,12 @@ const Firebase = ({ closeModal }) => {
 
       <button
         className="w-full bg-teal-600 text-white py-2 rounded-lg hover:bg-teal-700 transition-colors"
-        onClick={signIn}
+        onClick={SignIn}
       >
         Log in
       </button>
     </div>
-  );
-};
+  )
+}
 
-export default Firebase;
+export default HrLogin

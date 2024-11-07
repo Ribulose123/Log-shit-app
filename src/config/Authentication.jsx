@@ -3,7 +3,8 @@ import  { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { onAuthStateChanged, signOut } from 'firebase/auth'
 import { Timestamp, setDoc, doc, updateDoc } from 'firebase/firestore';
-import { authPoint, db } from './fire'
+import { db2, auth2 } from './Hrfirebabe';
+import { Link } from "react-router-dom"
 import Firebase from '../content/Firebase';
 
 const Authentication = () => {
@@ -16,7 +17,7 @@ const Authentication = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    const listenAuth = onAuthStateChanged(authPoint, (user) => {
+    const listenAuth = onAuthStateChanged(auth2, (user) => {
       setOnAuthentication(user)
       setShowModal(false)
       setClockModal(false)
@@ -26,16 +27,16 @@ const Authentication = () => {
   }, [])
 
   const logOut = () => {
-    signOut(authPoint)
+    signOut(auth2)
     navigate('/mainemployees')
   }
 
   const requestOverTime = async () => {
     try {
-      const user = authPoint.currentUser
+      const user = auth2.currentUser
       const email = user.email
       const timeStamp = Timestamp.now()
-      const overTimeRef = doc(db, 'overtimeRequests', `${email}-${new Date().toDateString()}`)
+      const overTimeRef = doc(db2, 'overtimeRequests', `${email}-${new Date().toDateString()}`)
 
       await setDoc(overTimeRef, {
         userId: email,
@@ -53,10 +54,10 @@ const Authentication = () => {
   }
 
   const clockIn = async () => {
-    const user = authPoint.currentUser
+    const user = auth2.currentUser
     const email = user.email
     const timeStamp = Timestamp.now()
-    const clockRef = doc(db, 'clockLog', `${email}-${new Date().toDateString()}`)
+    const clockRef = doc(db2, 'clockLog', `${email}-${new Date().toDateString()}`)
 
     await setDoc(clockRef, {
       userId: email,
@@ -68,10 +69,10 @@ const Authentication = () => {
   }
 
   const clockOut = async () => {
-    const user = authPoint.currentUser
+    const user = auth2.currentUser
     const email = user.email
     const timeStamp = Timestamp.now()
-    const clockRef = doc(db, 'clockLog', `${email}-${new Date().toDateString()}`)
+    const clockRef = doc(db2, 'clockLog', `${email}-${new Date().toDateString()}`)
 
     await updateDoc(clockRef, {
       clockOutTime: timeStamp,
@@ -92,19 +93,22 @@ const Authentication = () => {
             Sign Out
           </button>
           <button
-            className="rounded-3xl border border-solid border-slate-900 bg-white py-2 px-3 shadow-xl dark:border-gray-100 dark:bg-black dark:text-white text-slate-900 sm:w-1/"
+            className="rounded-3xl border border-solid border-slate-900 bg-white py-2 px-3 shadow-xl dark:border-gray-100 dark:bg-black dark:text-white text-slate-900 sm:w-1/6"
             onClick={() => setClockModal(true)}
           >
             Clock 🕙
           </button>
         </>
       ) : (
-        <button
-          className="rounded-3xl border border-solid border-slate-900 bg-white py-2 px-3 shadow-xl dark:border-gray-100 dark:bg-black dark:text-white sm:w-1/6 text-slate-900"
-          onClick={() => setShowModal(true)}
-        >
-          Sign in
-        </button>
+
+       <> 
+       <Link to='/' className="text-2xl">Home</Link>
+       <button
+         className="rounded-3xl border border-solid border-slate-900 bg-white py-2 px-3 shadow-xl dark:border-gray-100 dark:bg-black dark:text-white sm:w-1/6 text-slate-900"
+         onClick={() => setShowModal(true)}
+       >
+         Sign in
+       </button></>
       )}
 
       {showModal && (

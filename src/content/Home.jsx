@@ -1,131 +1,53 @@
-import { FaQuoteLeft } from "react-icons/fa6";
+import react  from "react"
+import { useNavigate } from "react-router-dom"
 
 const Home = () => {
+  const navigate = useNavigate()
+
+  const handleHr = ()=>navigate('/hrpage')
+  const handleEmployees =()=> navigate('/mainemployees')
+  return (
+    <div >
+        <main className='m-auto max-w-4xl'>
+        <h1 className=" text-center text-3xl mt-1 font-bold text-slate-900 dark:text-white sm:text-left sm:text-5xl">Shift Logging Application</h1>
+      <p className="text-center max-w-2/3 mb-6 mt-4 text-3xl text-slate-700 dark:text-slate-400 sm:text-left p-4">
+        This application allows employees to log their shifts, request overtime, and sign in or out using secure, location-based authentication.
+        HR can monitor work hours, approve or decline overtime, and access detailed reports.
+      </p>
+      <section
+  id="hero"
+  className="w-full lg:w-3/4 xl:w-full  flex flex-col items-center justify-center gap-8 p-12 sm:flex-row lg:p-20 "
+>
+  <article
+    className="flex flex-col sm:flex-row items-center justify-center gap-6 w-full"
+  >
+    <div
+      className="flex w-2/3 sm:w-1/2 flex-col items-center rounded-3xl border border-solid border-slate-900 bg-white py-10 px-6 shadow-xl dark:border-gray-100 dark:bg-black"
+    >
+
+      <img src="/public/img/hr1.avif" alt="hr avater" className="rounded-2xl " />
+      <h2 className="text-2xl font-semibold">HR Portal</h2>
+      <button  className="rounded-3xl border border-solid border-slate-900 bg-white py-2 px-3 shadow-xl dark:border-gray-100 dark:bg-black dark:text-white  text-slate-900 mt-3" onClick={handleHr}>Hr Page</button>
+    </div>
+
+    <div
+      className="flex w-2/3 sm:w-1/2 flex-col items-center rounded-3xl border border-solid border-slate-900 bg-white py-10 px-6 shadow-xl dark:border-gray-100 dark:bg-black"
+    >
+      <img src="/public/img/em3.avif" alt=""  className="rounded-2xl "/>
+      <h2 className="text-2xl font-semibold">Employee Portal</h2>
+      <button   className="rounded-3xl border border-solid border-slate-900 bg-white py-3 px-4 shadow-xl dark:border-gray-100 dark:bg-black dark:text-white  text-slate-900 mt-3" onClick={handleEmployees}>Employees page</button>
+      
+      
+    </div>
+  </article>
+</section>
+
 
  
 
+    <hr className="mx-auto w-1/2 bg-black dark:bg-white " />
 
-  return (
-    <div >
-        <main className='mx-auto max-w-4xl'>
-        <section id="hero"
-      className="widescreen:section-min-height tallscreen:section-min-height mb-12 flex scroll-mt-40 flex-col-reverse items-center justify-center gap-8 p-6 sm:flex-row">
-      <article className="sm:w-1/2">
-        <h2 className="max-w-md text-center text-4xl font-bold text-slate-900 dark:text-white sm:text-left sm:text-5xl">
-          We Boldly Go
-          <span className="text-indigo-700 dark:text-indigo-300">Where No Rocket</span>
-          Has Gone Before...
-        </h2>
-        <p className="mt-4 max-w-md text-center text-2xl text-slate-700 dark:text-slate-400 sm:text-left">
-          We're building rockets for the next century today. From the moon to
-          Mars, Jupiter and beyond...
-        </p>
-        <p className="mt-4 max-w-md text-center text-2xl text-slate-700 dark:text-slate-400 sm:text-left">
-          Think Acme Rockets.
-        </p>
-      </article>
-      <img className="w-1/2" src="./img/rocketdab (1).png" alt="Rocket Dab" />
-    </section>
-
-    <section id="rockets" className="widescreen:section-min-height tallscreen:section-min-height my-12 scroll-mt-20 p-6">
-      <h2 className="mb-6 text-center text-4xl font-bold text-slate-900 dark:text-white sm:text-5xl">
-        Our Rockets
-      </h2>
-      <ul className="mx-auto my-12 flex list-none flex-col items-center gap-8 sm:flex-row">
-        <li
-          className="flex w-2/3 flex-col items-center rounded-3xl border border-solid border-slate-900 bg-white py-6 px-2 shadow-xl dark:border-gray-100 dark:bg-black sm:w-5/6">
-          <img src="./img/rocketman.png" alt="Explorer" className="mb-6 w-1/2" />
-          <h3 className="text-center text-3xl text-slate-900 dark:text-white">
-            Explorer
-          </h3>
-          <p className="mt-2 hidden text-center text-3xl text-slate-500 dark:text-slate-400 sm:block">
-            $
-          </p>
-          <p className="mt-2 text-center text-2xl text-slate-500 dark:text-slate-400 sm:hidden">
-            Affordable Exploration
-          </p>
-        </li>
-        <li
-          className="flex w-2/3 flex-col items-center rounded-3xl border border-solid border-slate-900 bg-white py-6 px-2 shadow-xl dark:border-gray-100 dark:bg-black sm:w-5/6">
-          <img src="./img/rocketride.png" alt="Adventurer" className="mb-6 w-1/2" />
-          <h3 className="text-center text-3xl text-slate-900 dark:text-white">
-            Adventurer
-          </h3>
-          <p className="mt-2 hidden text-center text-3xl text-slate-500 dark:text-slate-400 sm:block">
-            $$
-          </p>
-          <p className="mt-2 text-center text-2xl text-slate-500 dark:text-slate-400 sm:hidden">
-            Best Selling Rocket!
-          </p>
-        </li>
-        <li
-          className="flex w-2/3 flex-col items-center rounded-3xl border border-solid border-slate-900 bg-white py-6 px-2 shadow-xl dark:border-gray-100 dark:bg-black sm:w-5/6">
-          <img src="./img/rocketlaunch.png" alt="Infinity" className="mb-6 w-1/2" />
-          <h3 className="text-center text-3xl text-slate-900 dark:text-white">
-            Infinity
-          </h3>
-          <p className="mt-2 hidden text-center text-3xl text-slate-500 dark:text-slate-400 sm:block">
-            $$$
-          </p>
-          <p className="mt-2 text-center text-2xl text-slate-500 dark:text-slate-400 sm:hidden">
-            Luxury Starship
-          </p>
-        </li>
-      </ul>
-    </section>
-
-    <hr className="mx-auto w-1/2 bg-black dark:bg-white" />
-
-    <section id="testimonials"
-      className="widescreen:section-min-height tallscreen:section-min-height my-12 scroll-mt-20 p-6">
-      <h2 className="mb-6 text-center text-4xl font-bold text-slate-900 dark:text-white sm:text-5xl">
-        Testimonials
-      </h2>
-      <figure className="my-12">
-        <blockquote className="relative rounded-3xl bg-teal-600 py-12 pl-14 pr-8 dark:bg-black">
-          <p
-            className="mt-2 text-left text-2xl text-white before:absolute before:top-0 before:left-0 before:translate-x-2 before:translate-y-2 before:transform before:font-serif before:text-9xl before:text-white before:opacity-25 before:content-['\201C'] after:absolute after:-bottom-20 after:right-0 after:-translate-x-2 after:-translate-y-2 after:transform after:font-serif after:text-9xl after:text-white after:opacity-25 after:content-['\201D'] dark:text-slate-400 sm:text-3xl">
-            Acme has always been there for me. Their Explorer rocket arrived
-            in a wooden crate as expected. Life-long customer! A++ shopping
-            experience.
-          </p>
-        </blockquote>
-        <figcaption className="mt-2 text-right text-xl italic text-slate-500 dark:text-slate-400 sm:text-2xl">
-          <FaQuoteLeft />Wile E. Coyote, Genius
-        </figcaption>
-      </figure>
-      <figure className="my-12">
-        <blockquote className="relative rounded-3xl bg-teal-600 py-12 pl-14 pr-8 dark:bg-black">
-          <p
-            className="mt-2 text-left text-2xl text-white before:absolute before:top-0 before:left-0 before:translate-x-2 before:translate-y-2 before:transform before:font-serif before:text-9xl before:text-white before:opacity-25 before:content-['\201C'] after:absolute after:-bottom-20 after:right-0 after:-translate-x-2 after:-translate-y-2 after:transform after:font-serif after:text-9xl after:text-white after:opacity-25 after:content-['\201D'] dark:text-slate-400 sm:text-3xl">
-            The Acme Adventurer Rocket has thwarted my Illudium Q-36 Explosive
-            Space Modulator on several occassions.
-            <span className="italic">This makes me very, very angry!</span>
-            Nevertheless, K-9 and I have awarded Acme the Martian contract for
-            space exploration rockets based on Acmes quality and sturdy
-            designs.
-          </p>
-        </blockquote>
-        <figcaption className="mt-2 text-right text-xl italic text-slate-500 dark:text-slate-400 sm:text-2xl">
-          <FaQuoteLeft />Marvin The Martian &amp; K-9
-        </figcaption>
-      </figure>
-      <figure className="my-12">
-        <blockquote className="relative rounded-3xl bg-teal-600 py-12 pl-14 pr-8 dark:bg-black">
-          <p
-            className="mt-2 text-left text-2xl text-white before:absolute before:top-0 before:left-0 before:translate-x-2 before:translate-y-2 before:transform before:font-serif before:text-9xl before:text-white before:opacity-25 before:content-['\201C'] after:absolute after:-bottom-20 after:right-0 after:-translate-x-2 after:-translate-y-2 after:transform after:font-serif after:text-9xl after:text-white after:opacity-25 after:content-['\201D'] dark:text-slate-400 sm:text-3xl">
-            I knew I not only wanted <FaQuoteLeft />
-            <span className="italic">I needed</span> <FaQuoteLeft /> Acmes Infinity
-            Rocket for my mission in space. Acme delivered in one day! Nothing
-            says <q className="italic">Take me to your leader</q> like Acmes
-            Infinity Rocket! 💯
-          </p>
-        </blockquote>
-        <figcaption className="mt-2 text-right text-xl italic text-slate-500 dark:text-slate-400 sm:text-2xl">
-          <FaQuoteLeft />Buzz Lightyear
-        </figcaption>
-      </figure>
-    </section>
+   
 
     <hr className="mx-auto w-1/2 bg-black dark:bg-white" />
 

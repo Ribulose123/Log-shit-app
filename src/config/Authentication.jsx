@@ -27,7 +27,7 @@ const Authentication = () => {
 
   const logOut = () => {
     signOut(authPoint)
-    navigate('/')
+    navigate('/mainemployees')
   }
 
   const requestOverTime = async () => {
